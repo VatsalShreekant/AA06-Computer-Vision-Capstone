@@ -17,8 +17,8 @@ p5.js- a JavaScript library for creative coding:
 		○ Node server--> lets us run javascript program on computers/servers
 		○ Python server
 		○ Atom server package
-
-Steps for dependencies installation:
+		
+	Steps for dependencies installation:
 	1. Install node.js: https://nodejs.org/en/
 	2. Install p5-manager
 		a. Terminal command as administrator: npm install -g p5-manager

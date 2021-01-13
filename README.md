@@ -15,9 +15,9 @@ create a collection of sketches
 ○ Library files
 	
 
-• Text editor
+• Text editor (either of these)
 	
-○ Atom
+○ Atom (recommended)
 	
 ○ Sublime text
 
@@ -26,23 +26,27 @@ create a collection of sketches
 
 • Server (viewing the results in a webpage)
 
+○ Atom server package (recommended)
+
 ○ Node server--> lets us run javascript program on computers/servers
 
 ○ Python server
 
-○ Atom server package
 		
 Steps for dependencies installation:
-1. Install node.js: https://nodejs.org/en/
+1. Install node.js: 
+
+https://nodejs.org/en/
+
 2. Install p5-manager
 	
 a. Terminal command as administrator: 
 
-	npm install -g p5-manager
+	$ npm install -g p5-manager
 	
 b. Terminal command as non-administrator: 
 	
-	sudo npm install -g p5-manager
+	$ sudo npm install -g p5-manager
 	
 3. Create a folder in documents and name it "p5_projects".
 4. Change the directory in cmd to p5_projects: cd Documents/p5_projects

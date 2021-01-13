@@ -3,7 +3,7 @@
 ## Install
 
 ### Dependencies
-#### p5.js- a JavaScript library for creative coding:
+#### I. p5.js- a JavaScript library for creative coding:
 
 • Project Files--> to be accessed the p5 manager. The p5-manager allows the user to 
 create a collection of sketches
@@ -14,6 +14,7 @@ create a collection of sketches
 
 ○ Library files
 	
+
 • Text editor
 	
 ○ Atom
@@ -21,6 +22,7 @@ create a collection of sketches
 ○ Sublime text
 
 ○ Visual studio
+
 
 • Server (viewing the results in a webpage)
 
@@ -46,7 +48,7 @@ Javascript console (for MAC OS)->
 customize and control dev tools (the 3 vertical dots)-> settings-> network-> 
 check 'Disable cache (while DevTools is open)'. 
 
-#### ml5.js is a library provides access to machine learning algorithms and models in the browser, 
+#### II. ml5.js is a library provides access to machine learning algorithms and models in the browser, 
 #### building on top of TensorFlow.js with no other external dependencies.
 • The ml5.js file can be downloaded to the local drive and can be used offline purposes. 
 However, I chose to reference the URL listed on https://learn.ml5js.org/#/. 

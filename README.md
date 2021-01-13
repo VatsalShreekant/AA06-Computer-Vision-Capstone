@@ -5,7 +5,7 @@
 ### Dependencies
 #### I. p5.js- a JavaScript library for creative coding:
 
-• Project Files--> to be accessed the p5 manager. The p5-manager allows the user to 
+• Project Files--> to be accessed by the p5 manager. The p5-manager allows the user to 
 create a collection of sketches
 	
 ○ Index.html
@@ -35,7 +35,9 @@ create a collection of sketches
 Steps for dependencies installation:
 1. Install node.js: https://nodejs.org/en/
 2. Install p5-manager
+	
 	a. Terminal command as administrator: npm install -g p5-manager
+	
 	b. Terminal command as non-administrator: sudo npm install -g p5-manager
 3. Create a folder in documents and name it "p5_projects".
 4. Change the directory in cmd to p5_projects: cd Documents/p5_projects

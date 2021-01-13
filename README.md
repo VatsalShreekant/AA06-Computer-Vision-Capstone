@@ -7,18 +7,28 @@
 
 • Project Files--> to be accessed the p5 manager. The p5-manager allows the user to 
 create a collection of sketches
-	○ Index.html
-	○ Sketch.js
-	○ Library files
+	
+○ Index.html
+
+○ Sketch.js
+
+○ Library files
 	
 • Text editor
-	○ Atom
-	○ Sublime text
-	○ Visual studio
+	
+○ Atom
+	
+○ Sublime text
+
+○ Visual studio
+
 • Server (viewing the results in a webpage)
-	○ Node server--> lets us run javascript program on computers/servers
-	○ Python server
-	○ Atom server package
+
+○ Node server--> lets us run javascript program on computers/servers
+
+○ Python server
+
+○ Atom server package
 		
 Steps for dependencies installation:
 1. Install node.js: https://nodejs.org/en/
@@ -40,4 +50,5 @@ check 'Disable cache (while DevTools is open)'.
 #### building on top of TensorFlow.js with no other external dependencies.
 • The ml5.js file can be downloaded to the local drive and can be used offline purposes. 
 However, I chose to reference the URL listed on https://learn.ml5js.org/#/. 
+
 • Under 'Quickstart', copy the URL in a script tag and paste it in the index.html file in your folder. 

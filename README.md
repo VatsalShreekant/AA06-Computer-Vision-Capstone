@@ -10,6 +10,7 @@ create a collection of sketches
 	○ Index.html
 	○ Sketch.js
 	○ Library files
+	
 • Text editor
 	○ Atom
 	○ Sublime text

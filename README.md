@@ -32,11 +32,13 @@ https://nodejs.org/en/
 2. Install p5-manager
 	- Terminal command as administrator: 
 
-		$ npm install -g p5-manager
+			$ npm install -g p5-manager
+	
 	
 	- Terminal command as non-administrator: 
 	
-		$ sudo npm install -g p5-manager
+			$ sudo npm install -g p5-manager
+	
 	
 3. Create a folder in documents and name it "p5_projects".
 4. Change the directory in cmd to p5_projects: 

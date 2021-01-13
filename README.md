@@ -5,14 +5,11 @@
 ### Dependencies
 #### I. p5.js- a JavaScript library for creative coding:
 
-• Project Files--> to be accessed by the p5 manager. The p5-manager allows the user to 
-create a collection of sketches
-	
-○ Index.html
-
-○ Sketch.js
-
-○ Library files
+- Project Files--> to be accessed by the p5 manager. The p5-manager allows the user to 
+create a collection of sketches.
+	- Index.html
+	- Sketch.js
+	- Library files
 	
 
 • Text editor (either of these)

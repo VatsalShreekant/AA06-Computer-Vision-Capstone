@@ -17,7 +17,7 @@ function setup() {
     // create 5 different videos objects for 5 diff yoga class poses in ur directory
 
     // downward dog
-    video_dd = createVideo(["yoga-dataset/training-vid/" + ""], video_loaded);
+    video_dd = createVideo(["yoga-dataset/training-vid/" + "downward-dog.mp4"], video_loaded);
     video_dd.hide();
 
     /* uncomment this for other testing
@@ -131,7 +131,7 @@ function draw(){
         sample = sample + 1;
         console.log("sample: " + sample);
 
-        /*
+        
         if((sample == 400) && (label == labels[current])){
             console.log("stop collecting for this pose");
             current = current + 1;
@@ -142,8 +142,8 @@ function draw(){
             // clear for next sequence of data
             json = {};
         }
-        */
         
+        /*
 		if(sample == 500 && label == labels[current]){
             console.log("stop collecting for this pose");
             current = current + 1;
@@ -199,5 +199,6 @@ function draw(){
 			state = 'stop';
 			saveJSON(json,'data.json');
         }	
+        */
 	}
 }

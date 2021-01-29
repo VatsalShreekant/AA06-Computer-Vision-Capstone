@@ -8,6 +8,9 @@ let sample = 0;
 let img_ctr = -1;
 let img_num = 0;
 let image_list = [];
+// let label;
+
+// let brain;
 
 function setup() {
   createCanvas(640, 480);
@@ -20,6 +23,15 @@ function setup() {
 
   poseNet = ml5.poseNet(onloaded);
   poseNet.on("pose", getposes);
+
+  // let options = {
+  //   inputs: 34,
+  //   outputs: 5,
+  //   task: 'classification',
+  //   debug: true
+  // }
+
+  // brain = ml5.neuralNetwork(options);
 
   // call for the first image here
   //openImage(image_list[img_num]);
@@ -88,12 +100,33 @@ function draw() {
         ellipse(x,y,12,12);
       }
       json[img_ctr] = input_points;
+      // let target_label = [label];
+      // brain.addData(input_points, target_label);
     }
-  } 
+  }
   //openImage(image_list[img_num]);
 }
 
 // just change the label here for reference
 function keyPressed(){
-    saveJSON(json, 'goddess' + '_data.json');
+  saveJSON(json, 'downwarddog' + '_data.json');
+    // if(keyCode === 97){
+    //   label = 'Downward Dog';
+    // }
+    // if(keyCode === 98){
+    //   label = 'Mountain';
+    // }
+    // if(keyCode === 99){
+    //   label = 'Tree';
+    // }
+    // if(keyCode === 100){
+    //   label = 'Goddess';
+    // }
+    // if(keyCode === 101){
+    //   label = 'Warrior2'
+    // }
+    // if(keyCode === 83){
+    //   brain.saveData();
+    // }
+    // console.log(label);
 }

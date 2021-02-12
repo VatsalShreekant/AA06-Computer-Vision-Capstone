@@ -50,7 +50,7 @@ function handleFile(file) {
     print(file); 
     if (file.type === 'image') { 
       img = createImg(file.data, imageReady); 
-      img.size(width, height);
+      img.size(640, 480);
       img.hide(); 
       img_ctr++;
       console.log(img_ctr);

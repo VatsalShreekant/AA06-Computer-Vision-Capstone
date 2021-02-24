@@ -49,7 +49,7 @@ function setup() {
     poseNet.on('pose', gotPoses);
 
     let options = {
-        inputs: 34,
+        inputs: 14,
         outputs: 5,
         task: 'classification',
         debug: true
@@ -61,12 +61,12 @@ function setup() {
 function calculate_angle(P1,P2,P3) {
     var angle = (
         Math.atan2(
-            P3.position.y - P1.position.y,
-            P3.position.x - P1.position.x
-        )
-        - Math.atan2(
             P2.position.y - P1.position.y,
             P2.position.x - P1.position.x
+        )
+        - Math.atan2(
+            P3.position.y - P1.position.y,
+            P3.position.x - P1.position.x
         )
     ) * (180 / Math.PI);
     return angle;

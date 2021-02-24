@@ -49,14 +49,14 @@ function setup() {
     // poseNet.on('pose', gotPoses);
 
     let options = {
-        inputs: 34,
+        inputs: 14,
         outputs: 5,
         task: 'classification',
         debug: true
     }
 
     brain = ml5.neuralNetwork(options);
-    brain.loadData('model/datapoints-ml5/yoga.json', dataReady);
+    brain.loadData('model/datapoints-ml5/soumya-datapoints.json', dataReady);
 }
 
 function dataReady(){

@@ -3,6 +3,8 @@ let poseNet;
 let pose;
 let skeleton;
 
+let numOutputs = 4;
+
 let brain;
 let targetLabel;
 
@@ -43,25 +45,25 @@ let state = 'waiting';
 
 function setup() {
     createCanvas(640, 480);
-    video = createCapture(VIDEO);
-    video.hide();
+    // video = createCapture(VIDEO);
+    // video.hide();
     // poseNet = ml5.poseNet(video, modelLoaded);
     // poseNet.on('pose', gotPoses);
 
     let options = {
         inputs: 14,
-        outputs: 5,
+        outputs: numOutputs,
         task: 'classification',
         debug: true
     }
 
     brain = ml5.neuralNetwork(options);
-    brain.loadData('model/datapoints-ml5/soumya-datapoints.json', dataReady);
+    brain.loadData('model/datapoints-ml5/vincent-training.json', dataReady);
 }
 
 function dataReady(){
     brain.normalizeData();
-    brain.train({epochs: 100}, finished);
+    brain.train({epochs: 50}, finished);
 }
 
 function finished(){

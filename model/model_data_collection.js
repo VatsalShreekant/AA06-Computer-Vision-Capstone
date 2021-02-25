@@ -3,16 +3,18 @@ let poseNet;
 let pose;
 let skeleton;
 
+let numOutputs = 4;
+
 let brain;
 let targetLabel;
 
 let state = 'waiting';
 
 function keyPressed(){
-    if(keyCode === 49){ // denotes 1
-        targetLabel = 'Downward Dog';
-    }
-    else if(keyCode === 50){ // denotes 2
+    // if(keyCode === 49){ // denotes 1
+    //     targetLabel = 'Downward Dog';
+    // }
+    if(keyCode === 50){ // denotes 2
         targetLabel = 'Mountain';
     }
     else if(keyCode === 51){ // denotes 3
@@ -50,7 +52,7 @@ function setup() {
 
     let options = {
         inputs: 14,
-        outputs: 5,
+        outputs: numOutputs,
         task: 'classification',
         debug: true
     }
@@ -69,6 +71,11 @@ function calculate_angle(P1,P2,P3) {
             P3.position.x - P1.position.x
         )
     ) * (180 / Math.PI);
+    if (angle > 90) {
+        angle = 450 - angle;
+    } else {
+        angle = 90 - angle;
+    }
     return angle;
 }
 
@@ -154,7 +161,11 @@ function modelLoaded () {
 }
 
 function draw() {
-    image(video, 0, 0);
+    push();
+    translate(video.width,0);
+    scale(-1,1);
+    image(video, 0, 0, video.width, video.height);
+    // image(video, 0, 0);
 
     if (pose) {
         for (let i = 0; i < pose.keypoints.length; i++){
@@ -172,4 +183,10 @@ function draw() {
             line(a.position.x, a.position.y, b.position.x, b.position.y);
         }
     }
+    pop();
+
+    fill(255);
+    textSize(128);
+    textAlign(CENTER,TOP);
+    text(state, 0, 12, width);
 }

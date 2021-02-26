@@ -3,7 +3,7 @@ let poseNet;
 let pose;
 let skeleton;
 
-let numOutputs = 4;
+let numOutputs = 5;
 
 let brain;
 let targetLabel;
@@ -11,10 +11,10 @@ let targetLabel;
 let state = 'waiting';
 
 function keyPressed(){
-    // if(keyCode === 49){ // denotes 1
-    //     targetLabel = 'Downward Dog';
-    // }
-    if(keyCode === 50){ // denotes 2
+    if(keyCode === 49){ // denotes 1
+        targetLabel = 'Downward Dog';
+    }
+    else if(keyCode === 50){ // denotes 2
         targetLabel = 'Mountain';
     }
     else if(keyCode === 51){ // denotes 3

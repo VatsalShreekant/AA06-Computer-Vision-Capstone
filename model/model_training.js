@@ -3,7 +3,7 @@ let poseNet;
 let pose;
 let skeleton;
 
-let numOutputs = 4;
+let numOutputs = 5;
 
 let brain;
 let targetLabel;

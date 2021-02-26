@@ -58,12 +58,12 @@ function setup() {
     }
 
     brain = ml5.neuralNetwork(options);
-    brain.loadData('model/datapoints-ml5/soumya-training.json', dataReady);
+    brain.loadData('model/datapoints-ml5/yoga.json', dataReady);
 }
 
 function dataReady(){
     brain.normalizeData();
-    brain.train({epochs: 50}, finished);
+    brain.train({epochs: 100}, finished);
 }
 
 function finished(){

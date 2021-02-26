@@ -3,7 +3,7 @@ let poseNet;
 let pose;
 let skeleton;
 
-let numOutputs = 5;
+let numOutputs = 4;
 
 let brain;
 let targetLabel;
@@ -58,7 +58,7 @@ function setup() {
     }
 
     brain = ml5.neuralNetwork(options);
-    brain.loadData('model/datapoints-ml5/vincent-training.json', dataReady);
+    brain.loadData('model/datapoints-ml5/soumya-training.json', dataReady);
 }
 
 function dataReady(){

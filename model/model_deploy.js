@@ -14,6 +14,7 @@ function setup() {
     video.hide();
     poseNet = ml5.poseNet(video, modelLoaded);
     poseNet.on('pose', gotPoses);
+    frameRate(30);
 
     let options = {
         inputs: 14,
@@ -152,4 +153,5 @@ function draw() {
     textSize(128);
     textAlign(CENTER,TOP);
     text(label, 0, 12, width);
+    text("Frame Count with framRate "+ int(getFrameRate()),100,100);
 }

@@ -7,16 +7,16 @@ let numOutputs = 4;
 
 let brain;
 let label = "";
-let treeJoints = [a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13];
-let mountainJoints = [a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13];
-let goddessJoints = [a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13];
-let warrior2Joints = [a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13];
+let treeJointsTarget = [a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13];
+let mountainJointsTarget = [a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13];
+let goddessJointsTarget = [a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13];
+let warrior2JointsTarget = [a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13];
 let sumCalculator = (accumulator, currentValue) => accumulator + currentValue;
 
-let treeJointsAvg = treeJoints.reduce(sumCalculator);
-let mountainJointsAvg = mountainJoints.reduce(sumCalculator);
-let goddessJointsAvg = goddessJoints.reduce(sumCalculator);
-let warrior2JointsAvg = warrior2Joints.reduce(sumCalculator);
+let treeJointsTargetSum = treeJointsTarget.reduce(sumCalculator);
+let mountainJointsTargetSum = mountainJointsTarget.reduce(sumCalculator);
+let goddessJointsTargetSum = goddessJointsTarget.reduce(sumCalculator);
+let warrior2JointsTargetSum = warrior2JointsTarget.reduce(sumCalculator);
 let tempInputAvg;
 
 
@@ -125,7 +125,7 @@ function classifyPose(){
         tempInput.push(a11);
         tempInput.push(a12);
         tempInput.push(a13);
-        tempInputAvg = tempInput.reduce(sumCalculator);
+        tempInputSum = tempInput.reduce(sumCalculator);
 
     }
     else{
@@ -144,18 +144,31 @@ function gotResult(error, results){
 }
 
 function verifyTree(calculatedAngle){
+  //For overall
   for(i = 0; i<treeJoints.length(); i++){
     if (calculatedAngle[i] < treeJoints[i] + 10.0 && calculatedAngle[i] > treeJoints[i] - 10.0){
-      if(treeJointsAvg>=tempInputAvg){
-        let treeJointsAccuracy = ((treeJointsAvg - tempInputAvg)/treeJointsAvg)*100;
-        text('Correct angle', treeJointsAccuracy);
-        //Maybe add percent accuracies here???
-      }
+    //For Vatsal + Dimple
+    //Increment counter
     }
     else {
       text('Fix your angle');
     }
   }
+/*
+*Overall Average for Tree Pose
+*/
+  if(treeJointsTargetSum>=tempInputSum){
+    let treeJointsAvg1 = ((treeJointsTargetSum - tempInputSum)/treeJointsTargetSum)*100;
+    text('Correct angle', treeJointsAvg1);
+    //Maybe add percent accuracies here???
+    //calculatedAngle>treeJointsAvg cuz calculatedAngle is
+  }
+  else if(treeJointsAvg<tempInputAvg) {
+    let treeJointsAccuracy2 = ((tempInputAvg-treeJointsAvg)/treeJointsAvg)*100;
+    text('Correct angle', treeJointsAccuracy2);
+  }
+
+
 }
 
 function verifyMountain(calculatedAngle){

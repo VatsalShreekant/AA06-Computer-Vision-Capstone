@@ -7,17 +7,17 @@ let numOutputs = 4;
 
 let brain;
 let label = "";
-let treeAngleTarget = [a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13];
+let treeAngleTarget = [265.9138,260.6718,272.7146,246.3994,60.34498,111.5485,51.3400,142.6155,116.9140,68.0511,116.1573,59.6353,115.0495,67.7750];
 let mountainAngleTarget = [267.9289,267.8780,277.3239,259.9554,67.79409,113.0501,271.2225,274.2705,71.86728,108.5598,71.2390,110.4801,68.2499,114.9507];
-let goddessAngleTarget = [a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13];
-let warrior2AngleTarget = [a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12,a13];
+let goddessAngleTarget = [225.8889,289.7705,307.4745,237.3843,76.1576,128.9146,153.4326,146.6774,225.0465,128.0132,174.4841,122.9264,227.6440,135.7814];
+let warrior2AngleTarget = [254.2574,297.9138,296.2177,242.5748,76.0482,130.3566,257.8660,232.2876,40.0474,134.5878,39.8124,132.0314,82.7860,140.9961];
 let sumCalculator = (accumulator, currentValue) => accumulator + currentValue;
 
 let treeAngleTargetSum = treeAngleTarget.reduce(sumCalculator);
 let mountainAngleTargetSum = mountainAngleTarget.reduce(sumCalculator);
 let goddessAngleTargetSum = goddessAngleTarget.reduce(sumCalculator);
 let warrior2AngleTargetSum = warrior2AngleTarget.reduce(sumCalculator);
-let tempInputAvg;
+let tempInputSum;
 
 
 function setup() {

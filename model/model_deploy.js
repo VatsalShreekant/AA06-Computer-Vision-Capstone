@@ -26,7 +26,7 @@ function setup() {
     video.hide();
     poseNet = ml5.poseNet(video, modelLoaded);
     poseNet.on('pose', gotPoses);
-    frameRate(30);
+    // frameRate(30);
 
     let options = {
         inputs: 14,
@@ -126,7 +126,6 @@ function classifyPose(){
         tempInput.push(a12);
         tempInput.push(a13);
         tempInputSum = tempInput.reduce(sumCalculator);
-
     }
     else{
         // delay if it wasnt able to detect the initial pose
@@ -143,7 +142,7 @@ function gotResult(error, results){
     classifyPose();
 }
 
-function verifyTree(calculatedAngle){
+function verifyTreePose(calculatedAngle){
   for(i = 0; i<treeAngleTarget.length(); i++){
     if (calculatedAngle[i] < treeAngleTarget[i] + 10.0 && calculatedAngle[i] > treeAngleTarget[i] - 10.0){
     //For Vatsal + Dimple of specific angles relating to pose
@@ -152,7 +151,7 @@ function verifyTree(calculatedAngle){
       text('Fix your angle');
     }
   }
-/*Overall Average for Tree Pose*/
+/*Overall Percent accuracy for Tree Pose*/
   if(treeAngleTargetSum>=tempInputSum){
     let treeAngleAccuracy1 = ((treeAngleTargetSum - tempInputSum)/treeAngleTargetSum)*100;
     text('Correct angle', treeAngleAccuracy1);
@@ -163,25 +162,66 @@ function verifyTree(calculatedAngle){
   }
 }
 
-function verifyTree(calculatedAngle){
-  for(i = 0; i<treeAngleTarget.length(); i++){
-    if (calculatedAngle[i] < treeAngleTarget[i] + 10.0 && calculatedAngle[i] > treeAngleTarget[i] - 10.0){
+function verifyMountainPose(calculatedAngle){
+  for(i = 0; i<mountainAngleTarget.length(); i++){
+    if (calculatedAngle[i] < mountainAngleTarget[i] + 10.0 && calculatedAngle[i] > mountainAngleTarget[i] - 10.0){
     //For Vatsal + Dimple of specific angles relating to pose
     }
     else {
       text('Fix your angle');
     }
   }
-/*Overall Average for Tree Pose*/
-  if(treeAngleTargetSum>=tempInputSum){
-    let treeAngleAccuracy1 = ((treeAngleTargetSum - tempInputSum)/treeAngleTargetSum)*100;
-    text('Correct angle', treeAngleAccuracy1);
+/*Overall Percent accuracy for Mountain Pose*/
+  if(mountainAngleTargetSum>=tempInputSum){
+    let mountainAngleAccuracy1 = ((mountainAngleTargetSum - tempInputSum)/mountainAngleTargetSum)*100;
+    text('Correct angle', mountainAngleAccuracy1);
   }
-  else if(treeAngleTargetSum<tempInputSum) {
-    let treeAngleAccuracy2 = ((tempInputSum-treeAngleTargetSum)/treeAngleTargetSum)*100;
-    text('Correct angle', treeAngleAccuracy2);
+  else if(mountainAngleTargetSum<tempInputSum) {
+    let mountainAngleAccuracy2 = ((tempInputSum-mountainAngleTargetSum)/mountainAngleTargetSum)*100;
+    text('Correct angle', mountainAngleAccuracy2);
   }
 }
+
+function verifyGoddessPose(calculatedAngle){
+  for(i = 0; i<goddessAngleTarget.length(); i++){
+    if (calculatedAngle[i] < goddessAngleTarget[i] + 10.0 && calculatedAngle[i] > goddessAngleTarget[i] - 10.0){
+    //For Vatsal + Dimple of specific angles relating to pose
+    }
+    else {
+      text('Fix your angle');
+    }
+  }
+/*Overall Percent accuracy for Tree Pose*/
+  if(goddessAngleTargetSum>=tempInputSum){
+    let goddessAngleAccuracy1 = ((goddessAngleTargetSum - tempInputSum)/goddessAngleTargetSum)*100;
+    text('Correct angle', goddessAngleAccuracy1);
+  }
+  else if(goddessAngleTargetSum<tempInputSum) {
+    let goddessAngleAccuracy2 = ((tempInputSum-goddessAngleTargetSum)/goddessAngleTargetSum)*100;
+    text('Correct angle', goddessAngleAccuracy2);
+  }
+}
+
+function verifyWarrior2Pose(calculatedAngle){
+  for(i = 0; i<warrior2AngleTarget.length(); i++){
+    if (calculatedAngle[i] < warrior2AngleTarget[i] + 10.0 && calculatedAngle[i] > warrior2AngleTarget[i] - 10.0){
+    //For Vatsal + Dimple of specific angles relating to pose
+    }
+    else {
+      text('Fix your angle');
+    }
+  }
+/*Overall Percent accuracy for Tree Pose*/
+  if(warrior2AngleTargetSum>=tempInputSum){
+    let warrior2AngleAccuracy1 = ((warrior2AngleTargetSum - tempInputSum)/warrior2AngleTargetSum)*100;
+    text('Correct angle', warrior2AngleAccuracy1);
+  }
+  else if(warrior2AngleTargetSum<tempInputSum) {
+    let warrior2AngleAccuracy2 = ((tempInputSum-warrior2AngleTargetSum)/warrior2AngleTargetSum)*100;
+    text('Correct angle', warrior2AngleAccuracy2);
+  }
+}
+
 
 
 function gotPoses(poses) {
@@ -222,5 +262,5 @@ function draw() {
     textSize(128);
     textAlign(CENTER,TOP);
     text(label, 0, 12, width);
-    text("FRate "+ int(getFrameRate()),350,200);
+    // text("FRate "+ int(getFrameRate()),350,200);
 }

@@ -9,6 +9,10 @@ let numOutputs = 4;
 let brain;
 let label = "";
 
+let poses = ["Mountain", "Tree", "Goddess", "Warrior 2"];
+let currentPose = "";
+let poseResult = "";
+
 function setup() {
     createCanvas(640, 480);
     video = createCapture(VIDEO);
@@ -36,6 +40,23 @@ function brainLoaded() {
     console.log('pose classification model ready');
     // if model is ready, then you can begin classification
     classifyPose();
+}
+
+function keyPressed(){
+    // mimics user picking a pose to perform
+    if(keyCode === 49){ // denotes 1
+        currentPose = 'Mountain';
+    }
+    else if(keyCode === 50){ // denotes 2
+        currentPose = 'Tree';
+    }
+    else if(keyCode === 51){ // denotes 3
+        currentPose = 'Goddess';
+    }
+    else if(keyCode === 52){ // denotes 4
+        currentPose = 'Warrior 2';
+    }
+    console.log(currentPose);
 }
 
 function calculate_angle(P1,P2,P3) {
@@ -106,14 +127,19 @@ function classifyPose(){
 }
 
 function gotResult(error, results){
+    // will compare based on the pose that the user selects, and the pose that the machine learning model returns
     if(results[0].confidence > 0.75){
         label = results[0].label;
-        console.log(label);
+        if (label === currentPose){
+            poseResult = "Correct Pose";
+        } else {
+            poseResult = "Incorrect Pose";
+        }
+        console.log(poseResult);
     }
     // after first classification, you want to keep classifying for new poses
     classifyPose();
 }
-
 
 function gotPoses(poses) {
     console.log(poses);
@@ -152,5 +178,6 @@ function draw() {
     fill(255);
     textSize(128);
     textAlign(CENTER,TOP);
-    text(label, 0, 12, width);
+    //text(label, 0, 12, width);
+    text(poseResult, 0, 12, width);
 }

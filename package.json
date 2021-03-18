@@ -1,0 +1,19 @@
+{
+  "name": "aa06-computer-vision-capstone",
+  "version": "1.0.0",
+  "description": "- Project Files--> to be accessed by the p5 manager. The p5-manager allows the user to \r create a collection of sketches.\r \t- Index.html\r \t- Sketch.js\r \t- Library files",
+  "main": "\u001b[D\u001b\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001bapp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VatsalShreekant/AA06-Computer-Vision-Capstone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VatsalShreekant/AA06-Computer-Vision-Capstone/issues"
+  },
+  "homepage": "https://github.com/VatsalShreekant/AA06-Computer-Vision-Capstone#readme"
+}

@@ -66,7 +66,7 @@ function calculate_angle(P1,P2,P3) {
     } else {
         angle = 90 - angle;
     }
-    return angle.toFixed(4); //Rounds the angle to 4 decimal places
+    return angle; //Rounds the angle to 4 decimal places
 }
 
 function classifyPose(){

@@ -72,22 +72,22 @@ function keyPressed(){
 }
 
 function calculate_angle(P1,P2,P3) {
-    var angle = (
-        Math.atan2(
-            P2.position.y - P1.position.y,
-            P2.position.x - P1.position.x
-        )
-        - Math.atan2(
-            P3.position.y - P1.position.y,
-            P3.position.x - P1.position.x
-        )
-    ) * (180 / Math.PI);
-    if (angle > 90) {
-        angle = 450 - angle;
-    } else {
-        angle = 90 - angle;
-    }
-    return angle.toFixed(4); //Rounds the angle to 4 decimal places
+  let angle = (
+    Math.atan2(
+        P2.position.y - P1.position.y,
+        P2.position.x - P1.position.x
+    )
+    - Math.atan2(
+        P3.position.y - P1.position.y,
+        P3.position.x - P1.position.x
+    )
+  ) * (180 / Math.PI);
+  // take the abs
+  angle = Math.abs(angle);
+  if (angle > 180) {
+      angle = 360 - angle;
+  }
+  return Math.round(angle*100) / 100;
 }
 
 function classifyPose(){
@@ -98,38 +98,39 @@ function classifyPose(){
         // angle is denoted by angle(P1,P2,P3) where P1 is the 'origin'
         let lKnee_lAnkle_lHip = calculate_angle(pose.keypoints[13], pose.keypoints[15], pose.keypoints[11]);
         let rKnee_rAnkle_rHip = calculate_angle(pose.keypoints[14], pose.keypoints[16], pose.keypoints[12]);
-        let a0 = inputs.push(lKnee_lAnkle_lHip);
-        let a1 = inputs.push(rKnee_rAnkle_rHip);
+        inputs.push(lKnee_lAnkle_lHip);
+        inputs.push(rKnee_rAnkle_rHip);
 
         let lHip_lKnee_lShoulder = calculate_angle(pose.keypoints[11], pose.keypoints[13], pose.keypoints[5]);
         let rHip_rKnee_rShoulder = calculate_angle(pose.keypoints[12], pose.keypoints[14], pose.keypoints[6]);
-        let a2 = inputs.push(lHip_lKnee_lShoulder);
-        let a3 = inputs.push(rHip_rKnee_rShoulder);
+        inputs.push(lHip_lKnee_lShoulder);
+        inputs.push(rHip_rKnee_rShoulder);
 
-        let lShoulder_lHip_lElbow = calculate_angle(pose.keypoints[5], pose.keypoints[11], pose.keypoints[7]);
-        let rShoulder_rHip_rElbow = calculate_angle(pose.keypoints[6], pose.keypoints[12], pose.keypoints[8]);
-        let a4 = inputs.push(lShoulder_lHip_lElbow);
-        let a5 = inputs.push(rShoulder_rHip_rElbow);
+        // flipped
+        let lShoulder_lHip_lElbow = calculate_angle(pose.keypoints[5], pose.keypoints[7], pose.keypoints[11]);
+        let rShoulder_rHip_rElbow = calculate_angle(pose.keypoints[6], pose.keypoints[8], pose.keypoints[12]);
+        inputs.push(lShoulder_lHip_lElbow);
+        inputs.push(rShoulder_rHip_rElbow);
 
         let lElbow_lShoulder_lWrist = calculate_angle(pose.keypoints[7], pose.keypoints[5], pose.keypoints[9]);
         let rElbow_rShoulder_rWrist = calculate_angle(pose.keypoints[8], pose.keypoints[6], pose.keypoints[10]);
-        let a6 = inputs.push(lElbow_lShoulder_lWrist);
-        let a7 = inputs.push(rElbow_rShoulder_rWrist);
+        inputs.push(lElbow_lShoulder_lWrist);
+        inputs.push(rElbow_rShoulder_rWrist);
 
         let lShoulder_lAnkle_lWrist = calculate_angle(pose.keypoints[5], pose.keypoints[15], pose.keypoints[9]);
         let rShoulder_rAnkle_rWrist = calculate_angle(pose.keypoints[6], pose.keypoints[16], pose.keypoints[10]);
-        let a8 = inputs.push(lShoulder_lAnkle_lWrist);
-        let a9 = inputs.push(rShoulder_rAnkle_rWrist);
+        inputs.push(lShoulder_lAnkle_lWrist);
+        inputs.push(rShoulder_rAnkle_rWrist);
 
         let lShoulder_lKnee_lWrist = calculate_angle(pose.keypoints[5], pose.keypoints[13], pose.keypoints[9]);
         let rShoulder_rKnee_rWrist = calculate_angle(pose.keypoints[6], pose.keypoints[14], pose.keypoints[10]);
-        let a10 = inputs.push(lShoulder_lKnee_lWrist);
-        let a11 = inputs.push(rShoulder_rKnee_rWrist);
+        inputs.push(lShoulder_lKnee_lWrist);
+        inputs.push(rShoulder_rKnee_rWrist);
 
-        let lShoulder_lHip_lWrist = calculate_angle(pose.keypoints[5], pose.keypoints[11], pose.keypoints[9]);
-        let rShoulder_rHip_rWrist = calculate_angle(pose.keypoints[6], pose.keypoints[12], pose.keypoints[10]);
-        let a12 = inputs.push(lShoulder_lHip_lWrist);
-        let a13 = inputs.push(rShoulder_rHip_rWrist);
+        let lShoulder_lHip_lWrist = calculate_angle(pose.keypoints[5], pose.keypoints[9], pose.keypoints[11]);
+        let rShoulder_rHip_rWrist = calculate_angle(pose.keypoints[6], pose.keypoints[10], pose.keypoints[12]);
+        inputs.push(lShoulder_lHip_lWrist);
+        inputs.push(rShoulder_rHip_rWrist);
 
         brain.classify(inputs, gotResult);//Gets the points to classify
         tempInput.push(a0);

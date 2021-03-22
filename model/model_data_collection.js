@@ -61,7 +61,7 @@ function setup() {
 }
 
 function calculate_angle(P1,P2,P3) {
-    var angle = (
+    let angle = (
         Math.atan2(
             P2.position.y - P1.position.y,
             P2.position.x - P1.position.x
@@ -71,12 +71,13 @@ function calculate_angle(P1,P2,P3) {
             P3.position.x - P1.position.x
         )
     ) * (180 / Math.PI);
-    if (angle > 90) {
-        angle = 450 - angle;
-    } else {
-        angle = 90 - angle;
+
+    // take the abs
+    angle = Math.abs(angle);
+    if (angle > 180) {
+        angle = 360 - angle;
     }
-    return angle;
+    return Math.round(angle*100) / 100;
 }
 
 function gotPoses(poses) {
@@ -125,8 +126,9 @@ function gotPoses(poses) {
             inputs.push(lHip_lKnee_lShoulder);
             inputs.push(rHip_rKnee_rShoulder);
 
-            let lShoulder_lHip_lElbow = calculate_angle(pose.keypoints[5], pose.keypoints[11], pose.keypoints[7]);
-            let rShoulder_rHip_rElbow = calculate_angle(pose.keypoints[6], pose.keypoints[12], pose.keypoints[8]);
+            // flipped
+            let lShoulder_lHip_lElbow = calculate_angle(pose.keypoints[5], pose.keypoints[7], pose.keypoints[11]);
+            let rShoulder_rHip_rElbow = calculate_angle(pose.keypoints[6], pose.keypoints[8], pose.keypoints[12]);
             inputs.push(lShoulder_lHip_lElbow);
             inputs.push(rShoulder_rHip_rElbow);
 
@@ -145,8 +147,8 @@ function gotPoses(poses) {
             inputs.push(lShoulder_lKnee_lWrist);
             inputs.push(rShoulder_rKnee_rWrist);
 
-            let lShoulder_lHip_lWrist = calculate_angle(pose.keypoints[5], pose.keypoints[11], pose.keypoints[9]);
-            let rShoulder_rHip_rWrist = calculate_angle(pose.keypoints[6], pose.keypoints[12], pose.keypoints[10]);
+            let lShoulder_lHip_lWrist = calculate_angle(pose.keypoints[5], pose.keypoints[9], pose.keypoints[11]);
+            let rShoulder_rHip_rWrist = calculate_angle(pose.keypoints[6], pose.keypoints[10], pose.keypoints[12]);
             inputs.push(lShoulder_lHip_lWrist);
             inputs.push(rShoulder_rHip_rWrist);
 

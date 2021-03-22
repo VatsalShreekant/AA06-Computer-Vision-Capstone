@@ -58,12 +58,12 @@ function setup() {
     }
 
     brain = ml5.neuralNetwork(options);
-    brain.loadData('model/datapoints-ml5/yoga.json', dataReady);
+    brain.loadData('model/revised-model/yoga-poses.json', dataReady);
 }
 
 function dataReady(){
     brain.normalizeData();
-    brain.train({epochs: 100}, finished);
+    brain.train({epochs: 50}, finished);
 }
 
 function finished(){
